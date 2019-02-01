@@ -12,3 +12,7 @@ A migration system for the [Records](https://github.com/kennethreitz/records) Py
 
     $ records-migrate apply
     Applied migration 3/5...
+
+## Considerations
+
+- Don't base migration order on file creation time, as Heroku strips the data on deploy.
