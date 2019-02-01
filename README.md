@@ -4,6 +4,8 @@ A migration system for the [Records](https://github.com/kennethreitz/records) Py
 
 ## Intented Usage
 
+Assuming `DATABASE_URL` is set:
+
     $ records-migrate check
     all migrations appear to be applied!
 
