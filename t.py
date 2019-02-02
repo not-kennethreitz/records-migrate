@@ -1,5 +1,9 @@
+from records import Database
 from records_migrate.adapters import MigrationAdapter
 
-a = MigrationAdapter(db=None)
-for file in a.load():
-    print(file)
+db = Database()
+a = MigrationAdapter(db=db)
+print(a.last_migration_applied)
+# a.init()
+# for file in a.load():
+#     print(file)

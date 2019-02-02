@@ -13,7 +13,10 @@ Assuming `DATABASE_URL` is set:
     Created file migrations/0003.sql. Feel free to add a suffix to the file name.
 
     $ records-migrate apply
-    Applied migration 3/5...
+    Applied migration 3/5...,,
+
+    $ records-migrate schema
+    Dumps out SQL script for generating the schema.
 
 ## Considerations
 
