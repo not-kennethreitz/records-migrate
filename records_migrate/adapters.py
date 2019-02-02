@@ -38,8 +38,8 @@ class MigrationAdapter:
 
         return [g for g in gen()]
 
-    def query(self, query):
-        return self.db.query(query)
+    def query(self, query, **kwargs):
+        return self.db.query(query, **kwargs)
 
     def init(self):
         q = """
@@ -57,8 +57,14 @@ class MigrationAdapter:
     def last_migration_applied(self):
         records = self.query("SELECT * from migrations;")
         try:
-            result = records[-1]["timestamp"]
+            result = records[0]["name"]
         except IndexError:
             result = None
 
         return result
+
+    def mark_success(self, migration_id):
+        self.query(
+            "INSERT INTO migrations (name) VALUES (:migration_id);",
+            migration_id=migration_id,
+        )
